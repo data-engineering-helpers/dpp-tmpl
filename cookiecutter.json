@@ -1,0 +1,29 @@
+{
+    "_tech_name": "depl",
+
+    "team_long_name" : "My Team",
+    "team_short_name": "{{cookiecutter.team_long_name.lower().replace(' ', '-').replace('_', '-')}}",
+    "team_group_email": "{{cookiecutter.team_short_name}}@decathlon.com",
+
+    "project_long_name": "My Project",
+    "project_slug": "{{cookiecutter.project_long_name.lower().replace(' ', '_').replace('-', '_')}}",
+    "project_short_name": "{{cookiecutter.project_slug.replace('_', '-')}}",
+
+    "project_name_dashes": "{{cookiecutter.team_short_name}}-{{cookiecutter.project_short_name}}-{{cookiecutter._tech_name}}",
+    "project_name_underscores": "{{cookiecutter.project_name_dashes.replace('-', '_')}}",
+
+    "github_actions_cloud_instance_role_ppd": "arn:aws:iam::123456789012:role/GITHUBACTIONS-{{cookiecutter.team_short_name.upper()}}",
+    "github_actions_cloud_instance_role_prd": "arn:aws:iam::234567890123:role/GITHUBACTIONS-{{cookiecutter.team_short_name.upper()}}",
+
+    "wksp_dev_uri": "s3://my-wksp-bucket-{{cookiecutter.project_short_name}}-dev",
+    "wksp_ppd_uri": "s3://my-wksp-bucket-{{cookiecutter.project_short_name}}-dev",
+    "wksp_prd_uri": "s3://my-wksp-bucket-{{cookiecutter.project_short_name}}-dev",
+
+    "dag_name": "my_dag",
+    "dag_monitoring_email": "alter@example.com",
+
+    "afl_dev_uri": "s3://my-wksp-bucket-afl-dev",
+    "afl_ppd_uri": "s3://my-wksp-bucket-afl-ppd",
+    "afl_prd_uri": "s3://my-wksp-bucket-afl-ppd"
+}
+

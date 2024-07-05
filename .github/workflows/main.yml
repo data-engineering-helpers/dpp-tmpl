@@ -1,0 +1,39 @@
+#
+# File: https://github.com/data-engineering-helpers/dpp-tmpl/blob/main/.github/workflows/main.yml
+#
+
+name: Cookiecutter templates for data processing pipelines (dpp)
+
+on: [push]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  test-instantiating-template:
+    name: Test of Cookiecutter instantiating
+    timeout-minutes: 10
+
+    steps:
+    - run: echo "The name of the branch is ${{ github.ref }} and the repository is ${{ github.repository }}."
+
+    - name: Install Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: 3.9
+
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Install PyTest
+      run: |
+        python -V
+        python -mpip install -U pip
+        python -mpip install -U pytest pytest-cookies
+
+    - name: Run tests
+      run: |
+        pytest --keep-baked-projects test_cookiecutter_template_generation.py
+
+    - run: echo "This job's status is ${{ job.status }}."

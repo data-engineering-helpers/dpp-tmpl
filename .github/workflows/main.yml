@@ -14,6 +14,7 @@ jobs:
   test-instantiating-template:
     name: Test of Cookiecutter instantiating
     timeout-minutes: 10
+    runs-on: ubuntu-latest
 
     steps:
     - run: echo "The name of the branch is ${{ github.ref }} and the repository is ${{ github.repository }}."
